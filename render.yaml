@@ -6,7 +6,7 @@ services:
     region: oregon
     plan: free
     dockerfilePath: ./players-service/Dockerfile
-    dockerContext: .
+    dockerContext: ./players-service
     envVars:
       - key: R2DBC_URL
         value: r2dbc:postgresql://dpg-d43vto6uk2gs739i7o4g-a/clubdb_gbqx
@@ -22,7 +22,7 @@ services:
     region: oregon
     plan: free
     dockerfilePath: ./teams-service/Dockerfile
-    dockerContext: .
+    dockerContext: ./teams-service
     envVars:
       - key: R2DBC_URL
         value: r2dbc:postgresql://dpg-d43vto6uk2gs739i7o4g-a/clubdb_gbqx
@@ -38,10 +38,11 @@ services:
     region: oregon
     plan: free
     dockerfilePath: ./api-gateway/Dockerfile
-    dockerContext: .
+    dockerContext: ./api-gateway
     envVars:
       - key: PLAYERS_URI
         value: https://players-service.onrender.com
       - key: TEAMS_URI
         value: https://teams-service.onrender.com
+
 
