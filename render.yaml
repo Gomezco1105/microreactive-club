@@ -2,11 +2,11 @@ services:
   # Players Service
   - type: web
     name: players-service
-    env: java
+    runtime: docker
     region: oregon
     plan: free
-    buildCommand: cd players-service && mvn clean package -DskipTests
-    startCommand: java -jar players-service/target/players-service-0.0.1-SNAPSHOT.jar
+    dockerfilePath: ./players-service/Dockerfile
+    dockerContext: .
     envVars:
       - key: R2DBC_URL
         value: r2dbc:postgresql://dpg-d43vto6uk2gs739i7o4g-a/clubdb_gbqx
@@ -18,11 +18,11 @@ services:
   # Teams Service
   - type: web
     name: teams-service
-    env: java
+    runtime: docker
     region: oregon
     plan: free
-    buildCommand: cd teams-service && mvn clean package -DskipTests
-    startCommand: java -jar teams-service/target/teams-service-0.0.1-SNAPSHOT.jar
+    dockerfilePath: ./teams-service/Dockerfile
+    dockerContext: .
     envVars:
       - key: R2DBC_URL
         value: r2dbc:postgresql://dpg-d43vto6uk2gs739i7o4g-a/clubdb_gbqx
@@ -34,13 +34,14 @@ services:
   # API Gateway
   - type: web
     name: api-gateway
-    env: java
+    runtime: docker
     region: oregon
     plan: free
-    buildCommand: cd api-gateway && mvn clean package -DskipTests
-    startCommand: java -jar api-gateway/target/api-gateway-0.0.1-SNAPSHOT.jar
+    dockerfilePath: ./api-gateway/Dockerfile
+    dockerContext: .
     envVars:
       - key: PLAYERS_URI
         value: https://players-service.onrender.com
       - key: TEAMS_URI
         value: https://teams-service.onrender.com
+
