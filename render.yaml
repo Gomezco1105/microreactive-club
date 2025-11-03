@@ -1,0 +1,50 @@
+services:
+  # Players Service
+  - type: web
+    name: players-service
+    runtime: java
+    env: java
+    region: oregon
+    plan: free
+    buildCommand: cd players-service && mvn clean package -DskipTests
+    startCommand: java -jar players-service/target/players-service-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: R2DBC_URL
+        value: r2dbc:postgresql://dpg-d43vto6uk2gs739i7o4g-a/clubdb_gbqx
+      - key: DB_USER
+        value: clubuser
+      - key: DB_PASSWORD
+        value: czsdyLvknmnAN1IUkMnXTaIdCRbDSsLy
+
+  # Teams Service
+  - type: web
+    name: teams-service
+    runtime: java
+    env: java
+    region: oregon
+    plan: free
+    buildCommand: cd teams-service && mvn clean package -DskipTests
+    startCommand: java -jar teams-service/target/teams-service-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: R2DBC_URL
+        value: r2dbc:postgresql://dpg-d43vto6uk2gs739i7o4g-a/clubdb_gbqx
+      - key: DB_USER
+        value: clubuser
+      - key: DB_PASSWORD
+        value: czsdyLvknmnAN1IUkMnXTaIdCRbDSsLy
+
+  # API Gateway
+  - type: web
+    name: api-gateway
+    runtime: java
+    env: java
+    region: oregon
+    plan: free
+    buildCommand: cd api-gateway && mvn clean package -DskipTests
+    startCommand: java -jar api-gateway/target/api-gateway-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: PLAYERS_URI
+        value: https://players-service.onrender.com
+      - key: TEAMS_URI
+        value: https://teams-service.onrender.com
+
