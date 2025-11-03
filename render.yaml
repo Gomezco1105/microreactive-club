@@ -2,7 +2,6 @@ services:
   # Players Service
   - type: web
     name: players-service
-    runtime: java
     env: java
     region: oregon
     plan: free
@@ -19,7 +18,6 @@ services:
   # Teams Service
   - type: web
     name: teams-service
-    runtime: java
     env: java
     region: oregon
     plan: free
@@ -36,7 +34,6 @@ services:
   # API Gateway
   - type: web
     name: api-gateway
-    runtime: java
     env: java
     region: oregon
     plan: free
@@ -47,4 +44,3 @@ services:
         value: https://players-service.onrender.com
       - key: TEAMS_URI
         value: https://teams-service.onrender.com
-
