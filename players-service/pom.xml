@@ -6,13 +6,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.example</groupId>
-        <artifactId>microreactive-club</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.6</version>
+        <relativePath/>
     </parent>
 
+    <groupId>com.example</groupId>
     <artifactId>players-service</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <name>players-service</name>
+
+    <properties>
+        <java.version>21</java.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -26,6 +33,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>r2dbc-postgresql</artifactId>
+            <version>1.0.5.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -61,4 +69,5 @@
         </plugins>
     </build>
 </project>
+
 
