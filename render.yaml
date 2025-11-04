@@ -47,6 +47,6 @@ services:
     healthCheckPath: /actuator/health
     envVars:
       - key: PLAYERS_URI
-        value: https://players-service.onrender.com
+        value: https://players-service-4r04.onrender.com
       - key: TEAMS_URI
-        value: https://teams-service.onrender.com
+        value: https://teams-service-yqm0.onrender.com
