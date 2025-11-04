@@ -1,49 +1,22 @@
 services:
-  # Players Service
+  - type: web
+    name: gateway
+    env: docker
+    dockerfilePath: gateway/Dockerfile
+    branch: main
+
   - type: web
     name: players-service
-    runtime: docker
-    region: oregon
-    plan: free
-    dockerfilePath: ./players-service/Dockerfile
-    dockerContext: ./players-service
-    envVars:
-      - key: R2DBC_URL
-        value: r2dbc:postgresql://dpg-d43vto6uk2gs739i7o4g-a/clubdb_gbqx
-      - key: DB_USER
-        value: clubuser
-      - key: DB_PASSWORD
-        value: czsdyLvknmnAN1IUkMnXTaIdCRbDSsLy
+    env: docker
+    dockerfilePath: players-service/Dockerfile
+    branch: main
 
-  # Teams Service
   - type: web
     name: teams-service
-    runtime: docker
-    region: oregon
-    plan: free
-    dockerfilePath: ./teams-service/Dockerfile
-    dockerContext: ./teams-service
-    envVars:
-      - key: R2DBC_URL
-        value: r2dbc:postgresql://dpg-d43vto6uk2gs739i7o4g-a/clubdb_gbqx
-      - key: DB_USER
-        value: clubuser
-      - key: DB_PASSWORD
-        value: czsdyLvknmnAN1IUkMnXTaIdCRbDSsLy
+    env: docker
+    dockerfilePath: teams-service/Dockerfile
+    branch: main
 
-  # API Gateway
-  - type: web
-    name: api-gateway
-    runtime: docker
-    region: oregon
-    plan: free
-    dockerfilePath: ./api-gateway/Dockerfile
-    dockerContext: ./api-gateway
-    envVars:
-      - key: PLAYERS_URI
-        value: https://players-service.onrender.com
-      - key: TEAMS_URI
-        value: https://teams-service.onrender.com
 
 
 
