@@ -11,7 +11,7 @@ services:
     healthCheckPath: /actuator/health
     envVars:
       - key: R2DBC_URL
-        value: r2dbc:postgresql://dpg-d43vto6uk2gs739i7o4g-a/clubdb_gbqx?sslMode=require
+        value: r2dbc:postgresql://dpg-d43vto6uk2gs739i7o4g-a.oregon-postgres.render.com:5432/clubdb_gbqx?sslMode=require
       - key: DB_USER
         value: clubuser
       - key: DB_PASSWORD
@@ -29,7 +29,7 @@ services:
     healthCheckPath: /actuator/health
     envVars:
       - key: R2DBC_URL
-        value: r2dbc:postgresql://dpg-d43vto6uk2gs739i7o4g-a/clubdb_gbqx?sslMode=require
+        value: r2dbc:postgresql://dpg-d43vto6uk2gs739i7o4g-a.oregon-postgres.render.com:5432/clubdb_gbqx?sslMode=require
       - key: DB_USER
         value: clubuser
       - key: DB_PASSWORD
