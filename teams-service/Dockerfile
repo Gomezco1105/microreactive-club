@@ -1,11 +1,11 @@
 FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
 
-COPY pom.xml .
-COPY teams-service/pom.xml ./teams-service/
+COPY ../pom.xml ./pom.xml
+COPY pom.xml ./teams-service/pom.xml
 RUN mvn -q -f teams-service/pom.xml -DskipTests dependency:go-offline
 
-COPY teams-service/src ./teams-service/src
+COPY src ./teams-service/src
 RUN mvn -q -f teams-service/pom.xml -DskipTests clean package
 
 FROM eclipse-temurin:21-jre
