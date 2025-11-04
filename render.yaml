@@ -6,7 +6,7 @@ services:
     region: oregon
     plan: free
     dockerfilePath: ./players-service/Dockerfile
-    dockerContext: ./players-service
+    dockerContext: .
     autoDeploy: true
     healthCheckPath: /actuator/health
     envVars:
@@ -24,7 +24,7 @@ services:
     region: oregon
     plan: free
     dockerfilePath: ./teams-service/Dockerfile
-    dockerContext: ./teams-service
+    dockerContext: .
     autoDeploy: true
     healthCheckPath: /actuator/health
     envVars:
@@ -42,7 +42,7 @@ services:
     region: oregon
     plan: free
     dockerfilePath: ./api-gateway/Dockerfile
-    dockerContext: ./api-gateway
+    dockerContext: .
     autoDeploy: true
     healthCheckPath: /actuator/health
     envVars:
