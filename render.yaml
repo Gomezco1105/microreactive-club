@@ -4,6 +4,7 @@ services:
     env: docker
     plan: free
     dockerfilePath: players-service/Dockerfile
+    dockerContext: players-service
     autoDeploy: true
     envVars:
       - key: SPRING_R2DBC_URL
@@ -19,6 +20,7 @@ services:
     env: docker
     plan: free
     dockerfilePath: teams-service/Dockerfile
+    dockerContext: teams-service
     autoDeploy: true
     envVars:
       - key: SPRING_R2DBC_URL
@@ -34,6 +36,7 @@ services:
     env: docker
     plan: free
     dockerfilePath: gateway/Dockerfile
+    dockerContext: gateway
     autoDeploy: true
     envVars:
       - key: PLAYERS_SERVICE_URL
@@ -41,6 +44,5 @@ services:
       - key: TEAMS_SERVICE_URL
         value: https://teams-service.onrender.com
     healthCheckPath: /actuator/health
-
 
 
